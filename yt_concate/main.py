@@ -5,7 +5,7 @@ from yt_concate.pipeline.steps.postflight import Postflight
 from yt_concate.pipeline.steps.preflight import Preflight
 from yt_concate.utils import Utils
 
-channel_id = 'UCIRYBXDze5krPDzAEOxFGVA'
+channel_id = 'UCTOoRgpHTjAQPk6Ak70u-pA'
 
 
 def main():

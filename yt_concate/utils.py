@@ -25,7 +25,7 @@ class Utils:
         return os.path.exists(path) and os.path.getsize(path) > 0
 
     def get_video_id_from_url(self, url):
-        video_id = url.split('watch?=')[-1]
+        video_id = url.split('watch?')[-1]
         return video_id
 
     def get_caption_filepath(self, url):
