@@ -1,9 +1,7 @@
 import urllib.request
 import json
-import urllib.request
-
-from yt_concate.pipeline.steps.step import Step
 from yt_concate.settings import API_KEY
+from yt_concate.pipeline.steps.step import Step
 
 
 class GetVideoList(Step):
@@ -17,14 +15,9 @@ class GetVideoList(Step):
 
         base_video_url = 'https://www.youtube.com/watch?v='
         base_search_url = 'https://www.googleapis.com/youtube/v3/search?'
-        first_url = base_search_url + f'key={API_KEY}&channelId={channel_id}&part=snippet,id&order=date&maxResults=25'
-        print(first_url)
+        url = base_search_url + f'key={API_KEY}&channelId={channel_id}&part=snippet,id&order=date&maxResults=25'
 
         video_links = []
-        url = first_url
-        # session_obj = requests.Session().post(url)
-        # resp = session_obj.get(url, headers={"User-Agent": "Mozilla/5.0"}).json()
-
         while True:
             inp = urllib.request.urlopen(url)
             resp = json.load(inp)
@@ -35,7 +28,7 @@ class GetVideoList(Step):
 
             try:
                 next_page_token = resp['nextPageToken']
-                url = first_url + f'&pageToken={next_page_token}'
+                url = url + f'&pageToken={next_page_token}'
 
             except KeyError:
                 break
