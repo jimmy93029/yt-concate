@@ -1,5 +1,5 @@
 import os
-from yt_concate.settings import CAPTIONS_DIR, DOWNLOADS_DIR, VIDEOS_DIR, CAPTIONS_DIR
+from yt_concate.settings import DOWNLOADS_DIR, VIDEOS_DIR, CAPTIONS_DIR
 
 
 class Utils:
@@ -20,13 +20,7 @@ class Utils:
         path = self.get_video_list_filepath(channel_id)
         return os.path.exists(path) and os.path.getsize(path) > 0
 
-    def caption_file_exists(self, url):
-        path = self.get_caption_filepath(url)
-        return os.path.exists(path) and os.path.getsize(path) > 0
-
-    def get_video_id_from_url(self, url):
-        video_id = url.split('watch?')[-1]
-        return video_id
-
-    def get_caption_filepath(self, url):
-        return os.path.join(CAPTIONS_DIR, self.get_video_id_from_url(url) + 'txt')
+    @staticmethod
+    def caption_file_exists(yt):
+        filepath = yt.get_caption_filepath()
+        return os.path.exists(filepath) and os.path.getsize(filepath) > 0
