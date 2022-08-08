@@ -6,15 +6,18 @@ from yt_concate.pipeline.steps.download_captions import DownloadCaptions
 from yt_concate.pipeline.steps.readcaptions import ReadCaptions
 from yt_concate.pipeline.steps.search import Search
 from yt_concate.pipeline.steps.download_videos import DownloadVideos
+from yt_concate.pipeline.steps.edit_videos import EditVideo
 from yt_concate.pipeline.steps.postflight import Postflight
 from yt_concate.utils import Utils
 
+channel_name = 'CNN10'
 channel_id = 'UCTOoRgpHTjAQPk6Ak70u-pA'
 terms = 'taiwan'
 
 
 def main():
     inputs = {
+        'channel_name': channel_name,
         'channel_id': channel_id,
         'terms': terms
     }
@@ -27,6 +30,7 @@ def main():
         ReadCaptions(),
         Search(),
         DownloadVideos(),
+        EditVideo(),
         Postflight(),
     ]
     utils = Utils()
