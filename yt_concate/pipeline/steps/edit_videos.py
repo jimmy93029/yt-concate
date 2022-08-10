@@ -1,3 +1,5 @@
+import logging
+
 from moviepy.video.compositing.concatenate import concatenate_videoclips
 from .step import Step
 from moviepy.editor import VideoFileClip
@@ -5,7 +7,7 @@ from moviepy.editor import VideoFileClip
 
 class EditVideo(Step):
     def process(self, data, inputs, utils):
-        print('in edit videos')
+        logging.info('in edit videos')
         founds = data
         clips = []
         for found in founds:

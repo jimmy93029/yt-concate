@@ -35,3 +35,17 @@ class Utils:
     def get_output_filepath(channel_name, terms):
         file_name = channel_name + '_' + terms
         return os.path.join(OUTPUT_DIR, file_name + '.mp4')
+
+# #logger
+# FORMAT = '%(asctime)s: %(name)s: %(message)s'
+# logging.basicConfig(format=FORMAT)
+#
+# logger_file = logging.getLogger(__name__)
+# filehandler = logging.FileHandler(filename=DOWNLOADS_DIR + 'logger')
+# logger_file.addHandler(filehandler)
+#
+# stream_handler = logging.StreamHandler()
+# ogger_output = logging.getLogger(__name__)
+# logger_output.addHandler(stream_handler)
+# stream_handler.setLevel(level='DEBUG')
+# logger_output.setLevel(level='DEBUG')
